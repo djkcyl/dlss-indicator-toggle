@@ -1,0 +1,28 @@
+#pragma code_page(65001)
+#include <windows.h>
+#include "resource.h"
+
+LANGUAGE LANG_CHINESE, SUBLANG_CHINESE_SIMPLIFIED
+
+IDD_MAIN_DIALOG DIALOGEX 0, 0, 290, 190
+STYLE DS_SETFONT | DS_MODALFRAME | DS_CENTER | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+CAPTION "DLSS Indicator 开关"
+FONT 9, "Microsoft YaHei UI"
+BEGIN
+    LTEXT          "HKLM\\SOFTWARE\\NVIDIA Corporation\\Global\\NGXCore", -1, 10, 10, 200, 10
+    PUSHBUTTON     "在 regedit 中打开", IDC_REGEDIT, 205, 8, 75, 14
+
+    GROUPBOX       "ShowDlssIndicator", -1, 8, 28, 274, 118
+    AUTOCHECKBOX   "应用此项（勾选才写入注册表）", IDC_ENABLE_CHECK, 18, 44, 200, 12
+    AUTORADIOBUTTON "关闭 (0)", IDC_RADIO_0, 30, 64, 100, 12, WS_GROUP | WS_TABSTOP
+    AUTORADIOBUTTON "绿色方块 (1)", IDC_RADIO_1, 30, 80, 120, 12, WS_TABSTOP
+    AUTORADIOBUTTON "文字详情 (1024 / 0x400)", IDC_RADIO_1024, 30, 96, 200, 12, WS_TABSTOP
+    LTEXT          "1024 同时点亮 SR/RR 左下角文字和 DLSS-G 顶部覆盖层。", -1, 18, 120, 254, 20
+
+    LTEXT          "当前: ?", IDC_STATUS, 10, 152, 274, 10
+    LTEXT          "", IDC_MESSAGE, 10, 168, 195, 18
+    PUSHBUTTON     "刷新", IDC_REFRESH, 187, 170, 45, 14
+    DEFPUSHBUTTON  "应用", IDC_APPLY, 237, 170, 45, 14
+END
+
+1 24 "app.manifest"
